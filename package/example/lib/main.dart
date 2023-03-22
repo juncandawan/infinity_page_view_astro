@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  MyHomePage({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
@@ -27,15 +27,15 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  String label;
-  int itemCount;
-  InfinityPageController infinityPageController;
+  late String label;
+  late int itemCount;
+  late InfinityPageController infinityPageController;
 
   @override
   void initState() {
-    //  infinityPageController = new InfinityPageController(initialPage: 0);
+    infinityPageController = new InfinityPageController(initialPage: 0);
     itemCount = 3;
-    label = "1/${itemCount}";
+    label = "1/$itemCount";
     super.initState();
   }
 
@@ -71,7 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 itemCount: itemCount,
                 onPageChanged: (int index) {
                   setState(() {
-                    label = "${index+1}/${itemCount}";
+                    label = "${index + 1}/$itemCount";
                   });
                 },
                 controller: infinityPageController,
@@ -83,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             new Row(
               children: <Widget>[
-                new FlatButton(
+                TextButton(
                     onPressed: () {
                       print("the page is ${infinityPageController.page}");
 
@@ -93,7 +93,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           curve: Curves.ease);
                     },
                     child: new Text("left")),
-                new FlatButton(
+                TextButton(
                     onPressed: () {
                       print("the page is ${infinityPageController.page}");
 
@@ -103,7 +103,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           curve: Curves.ease);
                     },
                     child: new Text("right")),
-                new FlatButton(
+                TextButton(
                     onPressed: () {
                       print("the page is ${infinityPageController.page}");
 
@@ -111,7 +111,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           .jumpToPage(infinityPageController.page - 1);
                     },
                     child: new Text("left")),
-                new FlatButton(
+                TextButton(
                     onPressed: () {
                       print("the page is ${infinityPageController.page}");
 
