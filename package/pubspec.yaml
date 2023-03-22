@@ -1,16 +1,15 @@
 name: infinity_page_view
 description: A infinity page view  .
-version: 1.0.0
-author: JZoom<jzoom8112@gmail.com>
-homepage: https://github.com/jzoom/infinity_page_view
+version: 1.1.0
+homepage: https://github.com/juncandawan/infinity_page_view_astro
 
 dependencies:
   flutter:
     sdk: flutter
 
 environment:
-  sdk: ">=2.0.0-dev.48.0 <3.0.0"
-  flutter: ">=0.1.4 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
+  flutter: ">=1.17.0"
 
 dev_dependencies:
   flutter_test:

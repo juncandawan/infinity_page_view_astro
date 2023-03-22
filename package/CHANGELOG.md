@@ -20,6 +20,6 @@
    * Add unit test
    * Add CI
 
-
-
-
+## [1.1.0] - [2023/03/22]
+   * Null Safety
+   * Upgraded example to embedding v2
