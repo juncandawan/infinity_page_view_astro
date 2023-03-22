@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 
 import 'package:infinity_page_view/infinity_page_view.dart';
 
-void main() => runApp(new MyApp());
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
+    return MaterialApp(
       title: 'Flutter Demo',
-      theme: new ThemeData(
+      theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: new MyHomePage(title: 'infinity_page_view'),
+      home: MyHomePage(title: 'infinity_page_view'),
     );
   }
 }
@@ -23,7 +23,7 @@ class MyHomePage extends StatefulWidget {
   final String title;
 
   @override
-  _MyHomePageState createState() => new _MyHomePageState();
+  _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
@@ -33,7 +33,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   void initState() {
-    infinityPageController = new InfinityPageController(initialPage: 0);
+    infinityPageController = InfinityPageController(initialPage: 0);
     itemCount = 3;
     label = "1/$itemCount";
     super.initState();
@@ -41,29 +41,29 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-        appBar: new AppBar(
-          title: new Text(widget.title),
+    return Scaffold(
+        appBar: AppBar(
+          title: Text(widget.title),
         ),
-        body: new Column(
+        body: Column(
           children: <Widget>[
-            new SizedBox(
+            SizedBox(
               height: 300.0,
-              child: new InfinityPageView(
+              child: InfinityPageView(
                 itemBuilder: (BuildContext context, int index) {
                   switch (index) {
                     case 0:
-                      return new Image.network(
+                      return Image.network(
                         "http://via.placeholder.com/350x150",
                         fit: BoxFit.fill,
                       );
                     case 1:
-                      return new Image.network(
+                      return Image.network(
                         "http://via.placeholder.com/250x100",
                         fit: BoxFit.fill,
                       );
                   }
-                  return new Image.network(
+                  return Image.network(
                     "http://via.placeholder.com/288x188",
                     fit: BoxFit.fill,
                   );
@@ -77,11 +77,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 controller: infinityPageController,
               ),
             ),
-            new Text(
+            Text(
               label,
-              style: new TextStyle(fontSize: 100.0),
+              style: TextStyle(fontSize: 100.0),
             ),
-            new Row(
+            Row(
               children: <Widget>[
                 TextButton(
                     onPressed: () {
@@ -102,7 +102,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           duration: new Duration(milliseconds: 300),
                           curve: Curves.ease);
                     },
-                    child: new Text("right")),
+                    child: Text("right")),
                 TextButton(
                     onPressed: () {
                       print("the page is ${infinityPageController.page}");
@@ -110,7 +110,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       infinityPageController
                           .jumpToPage(infinityPageController.page - 1);
                     },
-                    child: new Text("left")),
+                    child: Text("left")),
                 TextButton(
                     onPressed: () {
                       print("the page is ${infinityPageController.page}");
@@ -118,7 +118,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       infinityPageController
                           .jumpToPage(infinityPageController.page + 1);
                     },
-                    child: new Text("right")),
+                    child: Text("right")),
               ],
             ),
           ],
