@@ -1,6 +1,6 @@
-name: infinity_page_view
-description: A infinity page view  .
-version: 1.1.0
+name: infinity_page_view_astro
+description: An updated copy of infinity page view  .
+version: 1.0.0
 homepage: https://github.com/juncandawan/infinity_page_view_astro
 
 dependencies:

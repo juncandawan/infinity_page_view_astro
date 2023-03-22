@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:infinity_page_view/infinity_page_view.dart';
+import 'package:infinity_page_view_astro/infinity_page_view_astro.dart';
 
 void main() {
   testWidgets('Test basic usage', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(new MaterialApp(
-      home: new InfinityPageView(
+    await tester.pumpWidget(MaterialApp(
+      home: InfinityPageView(
           itemBuilder: (BuildContext context, int index) {
             return new Text("$index");
           },

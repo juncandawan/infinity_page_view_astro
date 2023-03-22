@@ -4,19 +4,15 @@ import 'dart:async';
 
 import 'package:flutter/widgets.dart';
 
+/// kMaxValue
 const int kMaxValue = 2000000000;
+
+/// kMiddleValue
 const int kMiddleValue = 1000000000;
 
+///class itself
 class InfinityPageView extends StatefulWidget {
-  final Axis scrollDirection;
-  final ScrollPhysics? physics;
-  final bool pageSnapping;
-  final ValueChanged<int>? onPageChanged;
-  final bool reverse;
-  final IndexedWidgetBuilder itemBuilder;
-  final InfinityPageController? controller;
-  final int itemCount;
-
+  ///constructor
   InfinityPageView({
     Key? key,
     required this.itemBuilder,
@@ -29,18 +25,39 @@ class InfinityPageView extends StatefulWidget {
     this.pageSnapping = true,
   });
 
+  ///scroll direction field
+  final Axis scrollDirection;
+
+  ///physics field
+  final ScrollPhysics? physics;
+
+  ///pagesnapping
+  final bool pageSnapping;
+
+  ///function to call for callbacks during page change
+  final ValueChanged<int>? onPageChanged;
+
+  ///if reverse or not
+  final bool reverse;
+
+  ///builder for the widget
+  final IndexedWidgetBuilder itemBuilder;
+
+  ///controller
+  final InfinityPageController? controller;
+
+  ///number of items
+  final int itemCount;
+
   @override
   State<StatefulWidget> createState() {
     return new _InfinityPageViewState();
   }
 }
 
+///controller
 class InfinityPageController {
-  late PageController pageController;
-
-  int? itemCount;
-  int? realIndex;
-
+  ///constructor
   InfinityPageController({
     int initialPage = 0,
     bool keepPage = true,
@@ -52,10 +69,21 @@ class InfinityPageController {
         viewportFraction: viewportFraction);
   }
 
+  ///page controller
+  late PageController pageController;
+
+  ///item count
+  int? itemCount;
+
+  ///index of the item
+  int? realIndex;
+
+  ///get the page index
   int get page {
     return calcIndex(this.realIndex!);
   }
 
+  ///calculate the index of the current item
   int calcIndex(int realIndex) {
     if (itemCount! == 0) return 0;
     int index = (realIndex - kMiddleValue) % this.itemCount!;
@@ -65,6 +93,7 @@ class InfinityPageController {
     return index;
   }
 
+  ///navigate to another page
   Future<void> animateToPage(
     int page, {
     required Duration duration,

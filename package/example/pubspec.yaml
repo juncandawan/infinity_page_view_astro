@@ -31,7 +31,7 @@ dependencies:
   flutter:
     sdk: flutter
     
-  infinity_page_view:
+  infinity_page_view_astro:
     path: ../
 
 

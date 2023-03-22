@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:infinity_page_view/infinity_page_view.dart';
+import 'package:infinity_page_view_astro/infinity_page_view_astro.dart';
 
 void main() => runApp(MyApp());
 
